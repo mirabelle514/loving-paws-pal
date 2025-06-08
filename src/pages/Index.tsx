@@ -1,13 +1,39 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+
+import { useState } from 'react';
+import MobileLayout from '@/components/MobileLayout';
+import Dashboard from '@/components/screens/Dashboard';
+import AddEntry from '@/components/screens/AddEntry';
+import PetProfile from '@/components/screens/PetProfile';
+import Analytics from '@/components/screens/Analytics';
+import Veterinarians from '@/components/screens/Veterinarians';
+import Settings from '@/components/screens/Settings';
 
 const Index = () => {
+  const [currentPage, setCurrentPage] = useState('dashboard');
+
+  const renderCurrentPage = () => {
+    switch (currentPage) {
+      case 'dashboard':
+        return <Dashboard onNavigate={setCurrentPage} />;
+      case 'add-entry':
+        return <AddEntry />;
+      case 'pets':
+        return <PetProfile />;
+      case 'analytics':
+        return <Analytics />;
+      case 'vets':
+        return <Veterinarians />;
+      case 'settings':
+        return <Settings />;
+      default:
+        return <Dashboard onNavigate={setCurrentPage} />;
+    }
+  };
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
-    </div>
+    <MobileLayout currentPage={currentPage} onNavigate={setCurrentPage}>
+      {renderCurrentPage()}
+    </MobileLayout>
   );
 };
 
