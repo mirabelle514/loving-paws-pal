@@ -18,11 +18,11 @@ const PetProfile = () => {
   const [editingPet, setEditingPet] = useState<Pet | null>(null);
   const [formData, setFormData] = useState({
     name: '',
-    species: 'dog' as const,
+    species: 'dog' as 'dog' | 'cat' | 'bird' | 'other',
     breed: '',
     age: '',
     weight: '',
-    gender: 'male' as const,
+    gender: 'male' as 'male' | 'female',
     microchipId: '',
     dateOfBirth: ''
   });
@@ -137,7 +137,7 @@ const PetProfile = () => {
         
         <div className="space-y-2">
           <Label htmlFor="species">Species *</Label>
-          <Select value={formData.species} onValueChange={(value: any) => setFormData({...formData, species: value})}>
+          <Select value={formData.species} onValueChange={(value: 'dog' | 'cat' | 'bird' | 'other') => setFormData({...formData, species: value})}>
             <SelectTrigger>
               <SelectValue />
             </SelectTrigger>
@@ -188,7 +188,7 @@ const PetProfile = () => {
 
       <div className="space-y-2">
         <Label htmlFor="gender">Gender</Label>
-        <Select value={formData.gender} onValueChange={(value: any) => setFormData({...formData, gender: value})}>
+        <Select value={formData.gender} onValueChange={(value: 'male' | 'female') => setFormData({...formData, gender: value})}>
           <SelectTrigger>
             <SelectValue />
           </SelectTrigger>

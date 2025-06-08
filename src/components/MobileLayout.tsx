@@ -61,7 +61,7 @@ const MobileLayout = ({ children, currentPage, onNavigate }: MobileLayoutProps) 
                     ? 'text-purple-600 bg-purple-50' 
                     : 'text-gray-400 hover:text-gray-600'
                 }`}
-                whilePressed={{ scale: 0.95 }}
+                whilePress={{ scale: 0.95 }}
                 whileTap={{ scale: 0.9 }}
               >
                 <Icon className={`w-5 h-5 ${isActive ? 'fill-current' : ''}`} />

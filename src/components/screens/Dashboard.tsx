@@ -193,7 +193,7 @@ const Dashboard = ({ onNavigate }: DashboardProps) => {
           <Card className="p-6 text-center bg-gradient-to-br from-blue-50 to-indigo-50 border-blue-200">
             <motion.div 
               className="text-4xl mb-4"
-              animate={{ bounce: [0, -10, 0] }}
+              animate={{ y: [0, -10, 0] }}
               transition={{ duration: 1.5, repeat: Infinity, repeatDelay: 2 }}
             >
               🏠
